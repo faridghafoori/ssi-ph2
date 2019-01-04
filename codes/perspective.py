@@ -21,7 +21,7 @@ def corners_unwarp(img, nx, ny, mtx, dist):
 	# 3) Find the chessboard corners
 	ret, corners = cv2.findChessboardCorners(gray, (nx, ny), None)
 	# 4) If corners found:
-	if ret == True:
+	if ret:
 		img2 = cv2.drawChessboardCorners(img2, (nx, ny), corners, ret)
 		src = np.float32([corners[0], corners[nx - 1], corners[ny * nx - nx], corners[ny * nx - 1]])
 		h, w = img.shape[:2]
